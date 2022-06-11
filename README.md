@@ -15,6 +15,6 @@ Works great in combination with a home screen shortcut on your phone! I used [He
 | Variable Name | Usage                                                                                                                                       | Example                       |
 |---------------|---------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------|
 | PORT          | The port that NodeJS will use to listen for requests                                                                                        | `3000`                        |
-| HASS_HOST     | The URL you use to open Home Assistant                                                                                                      | `http://homeassistant.local`  |
+| HASS_HOST     | The URL you use to open Home Assistant, including the port number if needed                                                                                                      | `http://homeassistant.local:8123`  |
 | HASS_TOKEN    | Access token from your Home Assistant account. See [Home Assistant docs](https://www.home-assistant.io/docs/authentication/) for more info  | `[a whole bunch of nonsense]` |
 | HASS_ENTITY   | The Home Assistant entity ID of your media device                                                                                           | `media_player.emby_shield_tv` |
