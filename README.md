@@ -1,4 +1,7 @@
 # Home Assistant IMDb Shortcut
+
+![Built with Love](https://img.shields.io/badge/built%20with-%E2%99%A5-blue?style=for-the-badge&labelColor=e26e32&color=d05e30) ![Does Not Contain Tree Nuts](https://img.shields.io/badge/does%20not%20contain-tree%20nuts-blue?style=for-the-badge&labelColor=3ec4f0&color=3a9ad2) [![code style - standard](https://img.shields.io/badge/code%20style-standard-green?style=for-the-badge&labelColor=90c96d&color=439b5e)](https://standardjs.com/) [![Contributor Covenant](https://img.shields.io/badge/contributor%20covenant-2.1-violet?style=for-the-badge&labelColor=892aa1&color=5d0f70)](https://github.com/kobitate/hass-imdb/blob/main/CODE_OF_CONDUCT.md)
+
 Home Assistant companion web server to open a media player entity’s content on IMDb using DuckDuckGo's `\` shortcut to visit the first result.
 
 This works by grabbing the current content from a Home Assistant `media_player` entity and searching for the exact episode (or just the movie) on DuckDuckGo. For example: `\The Americans (2013) season 3 episode 3 Open House site:imdb.com`. Including the episode name increased the chances of getting the proper result for some shows. It's slightly imperfect since it relies on the first result being the right one. I also found that DuckDuckGo was friendlier than Google to my clearly automated searching as I was testing. 
