@@ -3,7 +3,7 @@ Home Assistant companion web server to open a media player entity’s content on
 
 This works by grabbing the current content from a Home Assistant `media_player` entity and searching for the exact episode (or just the movie) on DuckDuckGo. For example: `\The Americans (2013) season 3 episode 3 Open House site:imdb.com`. Including the episode name increased the chances of getting the proper result for some shows. It's slightly imperfect since it relies on the first result being the right one. I also found that DuckDuckGo was friendlier than Google to my clearly automated searching as I was testing. 
 
-Works great in combination with a home screen shortcut on your phone! I used [Hermit for Android](https://play.google.com/store/apps/details?id=com.chimbori.hermitcrab&hl=en_US&gl=US) to generate a single-site browser for easy, silo'd access so I don't end up with a million IMDb tabs.
+Works great in combination with a home screen shortcut on your phone! I used [Hermit for Android](https://play.google.com/store/apps/details?id=com.chimbori.hermitcrab&hl=en_US&gl=US) to generate a single-site browser for easy, silo'd access so I don't end up with a million IMDb tabs. I also added a local network-wide DNS record to redirect `imdb.example.com` to the server for quick access.
 
 ## Setup instructions
 
