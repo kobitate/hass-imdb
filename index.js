@@ -38,11 +38,17 @@ app.get('/', (req, res) => {
         const season = attributes.media_season || 1
         const episode = attributes.media_episode || 1
         const episodeTitle = attributes.media_title.replaceAll(' ', '+')
-        query = `${show}+season+${season}+episode+${episode}+${episodeTitle}`
+        query = `${show}+season+${season}+episode+${episode}+${episodeTitle}+site%3Aimdb.com`
         break
       }
       case 'movie': {
-        query = attributes.media_title.replaceAll(' ', '+')
+        query = `${attributes.media_title.replaceAll(' ', '+')}+site%3Aimdb.com`
+        break
+      }
+      case 'music': {
+        const artist = attributes.media_artist
+        const track = attributes.media_title
+        query = encodeURIComponent(`${artist} ${track} site:genius.com`)
         break
       }
       default:
@@ -50,14 +56,12 @@ app.get('/', (req, res) => {
     }
 
     if (query !== undefined) {
-      const url = `https://html.duckduckgo.com/html?q=\\${query}+site%3Aimdb.com`
+      const url = `https://html.duckduckgo.com/html?q=\\${query}`
       res.redirect(url)
-    } else {
-      res.send('Something went wrong')
     }
   }).catch(e => {
     console.error(e)
-    res.send(e)
+    // res.send(e)
   })
 })
 
