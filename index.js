@@ -34,29 +34,29 @@ app.get('/', (req, res) => {
         break
       }
       case 'tvshow': {
-        const show = attributes.media_series_title.replaceAll(' ', '+')
-        const season = attributes.media_season || 1
-        const episode = attributes.media_episode || 1
-        const episodeTitle = attributes.media_title.replaceAll(' ', '+')
-        query = `${show}+season+${season}+episode+${episode}+${episodeTitle}+site%3Aimdb.com`
+        const show = attributes.media_series_title
+        const season = attributes.media_season
+        const episode = attributes.media_episode
+        const episodeTitle = attributes.media_title
+        query = `${show} season ${season} episode ${episode} ${episodeTitle} site:imdb.com`
         break
       }
       case 'movie': {
-        query = `${attributes.media_title.replaceAll(' ', '+')}+site%3Aimdb.com`
+        query = `${attributes.media_title} site:imdb.com`
         break
       }
       case 'music': {
         const artist = attributes.media_artist
         const track = attributes.media_title
-        query = encodeURIComponent(`${artist} ${track} site:genius.com`)
+        query = `${artist} ${track} site:genius.com`
         break
       }
       default:
-        res.send(`Incompatible media type ${type}, please play a TV Show or Movie`)
+        res.send(`Incompatible media type ${type}, please play a TV show, movie, or some music`)
     }
 
     if (query !== undefined) {
-      const url = `https://html.duckduckgo.com/html?q=\\${query}`
+      const url = `https://html.duckduckgo.com/html?q=\\${encodeURIComponent(query)}`
       res.redirect(url)
     }
   }).catch(e => {
