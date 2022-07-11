@@ -26,7 +26,7 @@ const hassConfig = {
 const checkEntity = entity => {
   const { attributes } = entity
 
-  console.log(`Checking ${attributes.friendly_name}.`)
+  console.log(`Checking ${attributes.friendly_name}.`) 
 
   if (!attributes.media_content_type) {
     return null
@@ -69,6 +69,7 @@ app.get('/', (req, res) => {
     axios.get(`${HASS_HOST}/api/states/${entity}`, hassConfig))
 
   Promise.all(entities).then(entityCalls => {
+    let foundMedia = false
     entityCalls.every(entityData => {
       const entity = entityData.data
       const mediaUrl = checkEntity(entity)
@@ -76,10 +77,14 @@ app.get('/', (req, res) => {
         console.log('Nothing playing on device')
         return true
       } else {
+        foundMedia = true
         res.redirect(mediaUrl)
         return false
       }
     })
+    if (!foundMedia) {
+      res.send('Nothing playing')
+    }
   })
 })
 
