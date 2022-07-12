@@ -26,7 +26,7 @@ const hassConfig = {
 const checkEntity = entity => {
   const { attributes } = entity
 
-  console.log(`Checking ${attributes.friendly_name}.`) 
+  console.log(`Checking ${attributes.friendly_name}.`)
 
   if (!attributes.media_content_type) {
     return null
