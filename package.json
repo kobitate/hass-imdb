@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "standard",
-    "lint": "standard --fix"
+    "lint": "standard --fix",
+    "start": "pm2 start index.js --name lookerupper",
+    "dev": "pm2 start index.js --name lookerupper-dev --watch"
   },
   "author": "Kobi Tate <kobi@kobitate.com>",
   "license": "MIT",
